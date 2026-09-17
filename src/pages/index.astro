@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { personalInfo, projects } from '../data/projects';
+import { personalInfo } from '../data/projects';
 ---
 
 <BaseLayout>
@@ -31,30 +30,6 @@ import { personalInfo, projects } from '../data/projects';
           <path d="m12 5 7 7-7 7"></path>
         </svg>
       </a>
-      <a
-        href="#projects"
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border-light dark:border-border-dark text-primary-light dark:text-primary-dark text-xs font-mono font-medium hover:bg-surface-light dark:hover:bg-surface-dark transition-colors"
-      >
-        <span>View work</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="pt-16 sm:pt-20 space-y-6">
-    <div class="flex items-baseline justify-between border-b border-border-light dark:border-border-dark pb-3">
-      <h2 class="font-mono text-xs uppercase tracking-wider text-muted-light dark:text-muted-dark font-medium">
-        Works & Experiments
-      </h2>
-      <span class="text-xs font-mono text-muted-light dark:text-muted-dark">
-        {projects.length} {projects.length === 1 ? 'item' : 'items'}
-      </span>
-    </div>
-
-    <div class="grid grid-cols-1 gap-4">
-      {projects.map((project) => (
-        <ProjectCard project={project} />
-      ))}
     </div>
   </section>
 
@@ -119,37 +94,6 @@ import { personalInfo, projects } from '../data/projects';
         <span class="text-xs font-mono text-muted-light dark:text-muted-dark group-hover:translate-x-0.5 transition-transform">↗</span>
       </a>
 
-      <a
-        href={personalInfo.socials.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group flex items-center justify-between p-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light/40 dark:bg-surface-dark/40 hover:bg-surface-light dark:hover:bg-surface-dark hover:border-gray-400 dark:hover:border-gray-600 transition-all"
-      >
-        <div class="flex items-center gap-3">
-          <svg class="w-4 h-4 text-muted-light dark:text-muted-dark group-hover:text-primary-light dark:group-hover:text-primary-dark transition-colors" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-          <span class="text-sm font-medium text-primary-light dark:text-primary-dark">X / Twitter</span>
-        </div>
-        <span class="text-xs font-mono text-muted-light dark:text-muted-dark group-hover:translate-x-0.5 transition-transform">↗</span>
-      </a>
-
-      <a
-        href={personalInfo.socials.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group flex items-center justify-between p-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light/40 dark:bg-surface-dark/40 hover:bg-surface-light dark:hover:bg-surface-dark hover:border-gray-400 dark:hover:border-gray-600 transition-all"
-      >
-        <div class="flex items-center gap-3">
-          <svg class="w-4 h-4 text-muted-light dark:text-muted-dark group-hover:text-primary-light dark:group-hover:text-primary-dark transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect width="4" height="12" x="2" y="9"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-          <span class="text-sm font-medium text-primary-light dark:text-primary-dark">LinkedIn</span>
-        </div>
-        <span class="text-xs font-mono text-muted-light dark:text-muted-dark group-hover:translate-x-0.5 transition-transform">↗</span>
-      </a>
     </div>
   </section>
 </BaseLayout>

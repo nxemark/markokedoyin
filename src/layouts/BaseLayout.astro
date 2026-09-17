@@ -63,17 +63,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="max-w-2xl w-full mx-auto px-5 sm:px-8 py-10 sm:py-16 flex-1 flex flex-col justify-between">
       
       <!-- Top Navigation -->
-      <header class="flex items-center justify-between pb-12 sm:pb-16">
-        <a href="/" class="group flex items-center gap-2">
-          <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-          <span class="font-mono text-sm tracking-tight text-primary-light dark:text-primary-dark group-hover:opacity-80 transition-opacity">
-            {personalInfo.name.toLowerCase().replace(' ', '')}.com
-          </span>
-        </a>
-
+      <header class="flex items-center justify-end pb-12 sm:pb-16">
         <div class="flex items-center gap-4">
           <nav class="flex items-center gap-4 text-xs font-mono text-muted-light dark:text-muted-dark">
-            <a href="#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Projects</a>
             <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">About</a>
             <a href="#connect" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Connect</a>
           </nav>
@@ -89,9 +81,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <!-- Footer -->
       <footer class="pt-16 sm:pt-24 mt-auto border-t border-border-light dark:border-border-dark flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-light dark:text-muted-dark">
         <p>© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</p>
-        <p class="flex items-center gap-1.5">
-          <span>Crafted with Astro</span>
-          <span>•</span>
+        <p>
           <span class="text-emerald-500">Available to collaborate</span>
         </p>
       </footer>
