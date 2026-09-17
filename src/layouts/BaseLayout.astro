@@ -50,40 +50,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Dark mode inline script to prevent flash of unstyled content (FOUC) -->
     <script is:inline>
       const getThemePreference = () => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'dark' || saved === 'light') return saved;
+        } catch {}
+        return 'light';
       };
       const isDark = getThemePreference() === 'dark';
       document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
     </script>
   </head>
-  <body class="min-h-screen flex flex-col font-sans transition-colors duration-200">
-    <div class="max-w-2xl w-full mx-auto px-5 sm:px-8 py-10 sm:py-16 flex-1 flex flex-col justify-between">
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-shell">
       
       <!-- Top Navigation -->
-      <header class="flex items-center justify-end pb-12 sm:pb-16">
-        <div class="flex items-center gap-4">
-          <nav class="flex items-center gap-4 text-xs font-mono text-muted-light dark:text-muted-dark">
-            <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">About</a>
-            <a href="#connect" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Connect</a>
+      <header class="site-header">
+        <a class="wordmark" href="/" aria-label="Mark Okedoyin home">mo<span>↗</span></a>
+        <div class="header-links">
+          <nav aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#connect">Connect</a>
           </nav>
           <ThemeToggle />
         </div>
       </header>
 
       <!-- Main Slot -->
-      <main class="flex-1">
+      <main id="main">
         <slot />
       </main>
 
       <!-- Footer -->
-      <footer class="pt-16 sm:pt-24 mt-auto border-t border-border-light dark:border-border-dark flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-light dark:text-muted-dark">
-        <p>© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</p>
-        <p>
-          <span class="text-emerald-500">Available to collaborate</span>
-        </p>
+      <footer class="site-footer">
+        <p>© {new Date().getFullYear()} {personalInfo.name}</p>
+        <p>Built with care. Kept simple.</p>
       </footer>
     </div>
   </body>
