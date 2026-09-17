@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import ArrowUpRight from '../components/ArrowUpRight.astro';
 import { personalInfo } from '../data/projects';
 
 interface Props {
@@ -66,7 +67,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       
       <!-- Top Navigation -->
       <header class="site-header">
-        <a class="wordmark" href="/" aria-label="Mark Okedoyin home">mo<span>↗</span></a>
+        <a class="wordmark" href="/" aria-label="Mark Okedoyin home">mo<ArrowUpRight class="wordmark-arrow" /></a>
         <div class="header-links">
           <nav aria-label="Main navigation">
             <a href="#about">About</a>

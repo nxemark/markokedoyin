@@ -46,7 +46,7 @@
 .site-shell { max-width: 1120px; margin: auto; padding: 0 48px; }
 .site-header { height: 112px; display: flex; align-items: center; justify-content: space-between; border-bottom: 4px solid var(--text-color); }
 .wordmark { font-size: 29px; font-weight: 600; letter-spacing: -2px; }
-.wordmark span { color: var(--accent); font-size: 22px; margin-left: 3px; }
+.wordmark-arrow { width: 17px; height: 17px; margin-left: 6px; color: var(--accent); stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; flex: none; }
 .header-links, nav { display: flex; gap: 32px; align-items: center; }
 nav { font-size: 13px; }
 a { transition: color .2s, background-color .2s; }
@@ -67,6 +67,7 @@ h1 { max-width: 700px; font-size: clamp(64px, 9.5vw, 112px); line-height: .93; f
 em { font-family: inherit; font-style: normal; font-weight: 600; }
 .intro-copy { max-width: 335px; font-size: 14px; line-height: 1.85; color: var(--muted); margin: 23px 0; }
 .contact-button { display: inline-flex; gap: 40px; align-items: center; margin-top: 23px; padding: 13px 20px; font-size: 12px; background: var(--text-color); color: var(--bg-color); }
+.link-arrow { width: 14px; height: 14px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; flex: none; }
 .contact-button:hover { background: var(--accent); }
 .hero-foot { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding: 42px 0 24px; color: var(--muted); }
 .status-dot { display: inline-block; height: 6px; width: 6px; background: #738464; border-radius: 100%; margin-right: 9px; }

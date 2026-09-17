@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ArrowUpRight from '../components/ArrowUpRight.astro';
 import { personalInfo } from '../data/projects';
 const interests = [
   { number: '01', title: 'Distributed systems', detail: 'Thinking beyond a single machine.' },
@@ -15,7 +16,7 @@ const interests = [
       <div class="intro">
         <p class="eyebrow role">{personalInfo.title}</p>
         <p class="intro-copy">I build software with a focus on simplicity, performance, and clean design.</p>
-        <a class="contact-button" href={personalInfo.socials.email}>Let’s talk <span aria-hidden="true">↗</span></a>
+        <a class="contact-button" href={personalInfo.socials.email}>Let’s talk <ArrowUpRight class="link-arrow" /></a>
       </div>
     </div>
     <div class="hero-foot"><span><i class="status-dot"></i>Available to collaborate</span></div>
@@ -37,6 +38,6 @@ const interests = [
 
   <section id="connect" class="connect-section" aria-labelledby="connect-title">
     <div><p class="eyebrow"><span class="section-index">02 /</span> Get in touch</p><h2 id="connect-title">Good things start<br />with a <em>conversation.</em></h2><p>A collaboration, a question, or just a hello.<br />My inbox is open.</p></div>
-    <div class="contact-links"><a href={personalInfo.socials.email}><span><small>Email me</small>{personalInfo.socials.email.replace('mailto:', '')}</span><span aria-hidden="true">↗</span></a><a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer"><span><small>Find me on GitHub</small>nxemark</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
+    <div class="contact-links"><a href={personalInfo.socials.email}><span><small>Email me</small>{personalInfo.socials.email.replace('mailto:', '')}</span><ArrowUpRight class="link-arrow" /></a><a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer"><span><small>Find me on GitHub</small>nxemark</span><ArrowUpRight class="link-arrow" /><span class="sr-only"> (opens in a new tab)</span></a></div>
   </section>
 </BaseLayout>
