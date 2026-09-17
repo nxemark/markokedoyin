@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import { personalInfo } from '../data/projects';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${personalInfo.name} — Portfolio`,
+  description = personalInfo.bio
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={personalInfo.name} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Preconnect fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Dark mode inline script to prevent flash of unstyled content (FOUC) -->
+    <script is:inline>
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      const isDark = getThemePreference() === 'dark';
+      document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div class="max-w-2xl w-full mx-auto px-5 sm:px-8 py-10 sm:py-16 flex-1 flex flex-col justify-between">
+      
+      <!-- Top Navigation -->
+      <header class="flex items-center justify-between pb-12 sm:pb-16">
+        <a href="/" class="group flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+          <span class="font-mono text-sm tracking-tight text-primary-light dark:text-primary-dark group-hover:opacity-80 transition-opacity">
+            {personalInfo.name.toLowerCase().replace(' ', '')}.com
+          </span>
+        </a>
+
+        <div class="flex items-center gap-4">
+          <nav class="flex items-center gap-4 text-xs font-mono text-muted-light dark:text-muted-dark">
+            <a href="#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Projects</a>
+            <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">About</a>
+            <a href="#connect" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Connect</a>
+          </nav>
+          <ThemeToggle />
+        </div>
+      </header>
+
+      <!-- Main Slot -->
+      <main class="flex-1">
+        <slot />
+      </main>
+
+      <!-- Footer -->
+      <footer class="pt-16 sm:pt-24 mt-auto border-t border-border-light dark:border-border-dark flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-light dark:text-muted-dark">
+        <p>© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</p>
+        <p class="flex items-center gap-1.5">
+          <span>Crafted with Astro</span>
+          <span>•</span>
+          <span class="text-emerald-500">Available to collaborate</span>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
