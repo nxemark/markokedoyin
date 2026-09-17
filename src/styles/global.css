@@ -66,7 +66,7 @@ h1 { max-width: 700px; font-size: clamp(64px, 9.5vw, 112px); line-height: .93; f
 .intro h2 { font-size: 36px; letter-spacing: -2px; line-height: 1.13; font-weight: 400; }
 em { font-family: inherit; font-style: normal; font-weight: 600; }
 .intro-copy { max-width: 335px; font-size: 14px; line-height: 1.85; color: var(--muted); margin: 23px 0; }
-.contact-button { display: inline-flex; gap: 40px; align-items: center; padding: 13px 20px; font-size: 12px; background: var(--text-color); color: var(--bg-color); }
+.contact-button { display: inline-flex; gap: 40px; align-items: center; margin-top: 23px; padding: 13px 20px; font-size: 12px; background: var(--text-color); color: var(--bg-color); }
 .contact-button:hover { background: var(--accent); }
 .hero-foot { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding: 42px 0 24px; color: var(--muted); }
 .status-dot { display: inline-block; height: 6px; width: 6px; background: #738464; border-radius: 100%; margin-right: 9px; }
