@@ -15,7 +15,7 @@ export const personalInfo = {
   bio: "I build software with a focus on simplicity, performance, and clean design. Currently exploring systems, web architecture, and creating focused tools.",
   currentlyLearning: "Deepening my knowledge of distributed systems, efficient web applications, and developer tooling.",
   socials: {
-    github: "https://github.com",
+    github: "https://github.com/nxemark",
     twitter: "https://x.com",
     linkedin: "https://linkedin.com",
     email: "mailto:hello@markokedoyin.com"
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     description: "A minimal, lightning-fast utility designed to streamline developer workflows and command-line interactions.",
     tags: ["TypeScript", "Node.js", "CLI"],
     status: "In Progress",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/nxemark",
     featured: true
   },
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     description: "An exploratory backend microservice architecture focused on clean API design, resilience, and minimal footprint.",
     tags: ["Go", "REST API", "Docker"],
     status: "Experiment",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/nxemark",
     featured: true
   },
   {
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     tags: ["Astro", "Tailwind CSS", "TypeScript"],
     status: "Shipped",
     liveUrl: "https://markokedoyin.com",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/nxemark/markokedoyin",
     featured: true
   }
 ];
